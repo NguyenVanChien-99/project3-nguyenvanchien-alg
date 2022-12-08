@@ -27,12 +27,15 @@ def sort(input):
     p = input[len(input)//2]
     left=[]
     right=[]
+    middle=[]
     for i in input:
         if i>p:
             left.append(i)
         elif i<p:
             right.append(i)
-    return sort(left)+[p]+sort(right)
+        else:
+            middle.append(i)
+    return sort(left)+middle+sort(right)
 
 def test_function(test_case):
     output = rearrange_digits(test_case[0])
@@ -40,7 +43,8 @@ def test_function(test_case):
     if sum(output) == sum(solution):
         print("Pass")
     else:
-        print("Fail")
+        print('Fail , Expected: {}, output: {}'.format(solution,output))
 
 test_function([[1, 2, 3, 4, 5], [542, 31]])
 test_function([[4, 6, 2, 5, 9, 8], [964, 852]])
+test_function([[0,0,0,1], [10, 00]])
