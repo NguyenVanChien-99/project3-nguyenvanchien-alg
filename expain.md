@@ -2,21 +2,21 @@
 
 > The idea is get the number in the middle(Start=0, end = number we put in. So middle = (Start+End)/2) then we will canculate squared of it
 > if it equal to [number] , we return it.
-> if less then [number], back to step 1 but Start= (Start of step 1), end = (middle)  (recurser)
-> otherwise , we back to step 1 but Start= (middle), end = (end of step 1) (recurser)
-> *note : if floored start number equal to floored end number, we return floored start
+> if less then [number], back to step 1 but Start= (Start of step 1), end = (middle)  (recurser).
+> otherwise , we back to step 1 but Start= (middle), end = (end of step 1) (recurser).
+> * note : if floored start number equal to floored end number, we return floored start.
 
 # Problem 2
 
 > Using recurser
 > I will get the middle of list and compare it with the number we need to search, if both are equal, just return the middle
-> if the middle item's value is more than [number]
->> we need to check the first item
->> if it more than [number], that's mean all the items from [first] to [middle] are more then [number], we need to check the rest (from [middle+1] to [end]) (Back to step 1)
->> else we need to check the items from [first] to [middle-1]) (Back to step 1)
-> else, we will do the same thing as above but in reverse
->> if first item more than [number], we to check the items from [first] to [middle-1]) (Back to step 1)
->> else  we to check the items from [middle+1] to [end]
+> * if the middle item's value is more than [number]
+> * we need to check the first item
+> * if it more than [number], that's mean all the items from [first] to [middle] are more then [number], we need to check the rest (from [middle+1] to [end]) (Back to step 1)
+> * else we need to check the items from [first] to [middle-1]) (Back to step 1)
+> * else, we will do the same thing as above but in reverse
+> * if first item more than [number], we to check the items from [first] to [middle-1]) (Back to step 1)
+> * else  we to check the items from [middle+1] to [end]
 
 
 # Problem 3
@@ -44,12 +44,12 @@
 # Pronlem 6
 > Create [min] and [max] with the value equal to the first element of input list
 > interate the list:
-> if current item more than [max] ,then [max]= current item
-> if current item less than [min] ,then [min]= less item
+> * if current item more than [max] ,then [max]= current item
+> * if current item less than [min] ,then [min]= less item
 
 # Problem 7
 > Using Trie to store the routes and its handler fucntion.
 > Each part of path will be a TrieNode
 > Router class: there are 3 atrributes : routes (Trie), default handler, root path
-> add_handler: if the path is the root path, we do nothing, else we add the path and its handler to the routes (Trie)
-> lookup: use routes (Trie) to find the handler of the path, if it return None, then we return default handler .
+> * add_handler: if the path is the root path, we do nothing, else we add the path and its handler to the routes (Trie)
+> * lookup: use routes (Trie) to find the handler of the path, if it return None, then we return default handler .
