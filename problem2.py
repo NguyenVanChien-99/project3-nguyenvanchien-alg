@@ -8,7 +8,6 @@ def rotated_array_search(input_list, number):
        int: Index or -1
     """
     output =   search(0,input_list,number)
-    print(output)
     return output
 
 def search(start,input_list, number):

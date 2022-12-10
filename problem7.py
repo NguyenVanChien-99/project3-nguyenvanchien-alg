@@ -89,10 +89,10 @@ router.add_handler("/home/category", "category handler")  # add a route
 router.add_handler("/product/1", "product handler")  # add a route
 
 # some lookups with the expected output
-print(router.lookup("/")) # should print 'root handler'
-print(router.lookup("/home")) # should print 'not found handler' or None if you did not implement one
-print(router.lookup("/home/about")) # should print 'about handler'
-print(router.lookup("/home/about/")) # should print 'about handler' or None if you did not handle trailing slashes
-print(router.lookup("/home/about/me")) # should print 'not found handler' or None if you did not implement one
-print(router.lookup("/home/category")) # should print 'category handler'
-print(router.lookup("/product/1")) # should print 'product handler'
+print("pass" if router.lookup("/")=="root handler" else "Failed") # should print 'root handler'
+print("pass" if router.lookup("/home")=="not found handler" else "Failed") # should print 'not found handler' or None if you did not implement one
+print("pass" if router.lookup("/home/about")=="about handler" else "Failed") # should print 'about handler'
+print("pass" if router.lookup("/home/about/")=="about handler" else "Failed") # should print 'about handler' or None if you did not handle trailing slashes
+print("pass" if router.lookup("/home/about/me")=="not found handler" else "Failed") # should print 'not found handler' or None if you did not implement one
+print("pass" if router.lookup("/home/category")=="category handler" else "Failed") # should print 'category handler'
+print("pass" if router.lookup("/product/1")=="product handler" else "Failed") # should print 'product handler'
