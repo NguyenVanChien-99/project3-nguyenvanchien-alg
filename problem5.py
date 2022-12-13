@@ -21,7 +21,7 @@ class TrieNode:
         ## all complete words below this point
         
         out = []
-        if self.is_word:
+        if self.is_word and suffix !='':
             out.append(suffix)
         for char in self.chars:
             out+=self.chars[char].suffixes(suffix+char)
@@ -72,5 +72,38 @@ def f(prefix):
             print(prefix + " not found")
     else:
         print('')
-# interact(f,prefix='f')
-f("t")
+# Normal case
+print("Case 1 :Expected :",["ger","onometry"])
+f("trig")
+
+#Not found
+print("Case 2 :Expected : ayx not found")
+f("ayx")
+
+#Dont have any suffix
+print("Case 3 :Expected : []")
+f("trigger")
+
+#Empty Trie
+tre2 = Trie()
+print("Case 4 :Expected : aaa not found")
+fNode = tre2.find("aaa")
+if fNode:
+    print("Failed")
+else:
+    print("aaa not found")
+
+#Add same word
+print("Case 5 :Expected :",['ello'])
+tre2.insert("hello")
+fNode2= tre2.find("h")
+if fNode2:
+    print("Before: ",fNode2.suffixes())
+else:
+    print("Failed")
+tre2.insert("hello")
+fNode2= tre2.find("h")
+if fNode2:
+    print("After: ",fNode2.suffixes())
+else:
+    print("Failed")

@@ -82,6 +82,7 @@ class Router:
 
 # Here are some test cases and expected outputs you can use to test your implementation
 
+#normal case
 # create the router and add a route
 router = Router("root handler", "not found handler") # remove the 'not found handler' if you did not implement this
 router.add_handler("/home/about", "about handler")  # add a route
@@ -96,3 +97,11 @@ print("pass" if router.lookup("/home/about/")=="about handler" else "Failed") # 
 print("pass" if router.lookup("/home/about/me")=="not found handler" else "Failed") # should print 'not found handler' or None if you did not implement one
 print("pass" if router.lookup("/home/category")=="category handler" else "Failed") # should print 'category handler'
 print("pass" if router.lookup("/product/1")=="product handler" else "Failed") # should print 'product handler'
+
+#Add same path
+router.add_handler("/product/1", "different handler") 
+print("pass" if router.lookup("/product/1")=="different handler" else "Failed") # should print 'different handler'
+
+#Empty router
+router2= Router("root handler 2","Default handler 2")
+print("pass" if router2.lookup("/home")=="Default handler 2" else "Failed") # should print 'different handler'

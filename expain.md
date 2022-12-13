@@ -5,7 +5,8 @@
 > if less then [number], back to step 1 but Start= (Start of step 1), end = (middle)  (recurser).
 > otherwise , we back to step 1 but Start= (middle), end = (end of step 1) (recurser).
 > * note : if floored start number equal to floored end number, we return floored start.
-
+> * Big O: O(log(n))
+> Using recurser because we need to do the same job in next steps
 # Problem 2
 
 > Using recurser
@@ -17,13 +18,16 @@
 > * else, we will do the same thing as above but in reverse
 > * if first item more than [number], we to check the items from [first] to [middle-1]) (Back to step 1)
 > * else  we to check the items from [middle+1] to [end]
-
+> * Big O: O(log(n))
+>  Using recurser because after each steps , we will have a half list and search the number in this period. (same job)
 
 # Problem 3
 > I will sort the list first (descending) and create 2 numbers [first_number] (0) and [second_number] (0)
 > If total number of items is odd. we will remove the first item  from the list and put it to [first_number]
 > Then get 2 first items of the list and put the first ont to [first_number], second one to [second_number]. We will continute until the list empty
 > then we will return this 2 numbers
+> Big O: O(n*log(n)) (for sort function) + O(n) (for create 2 number)=> O9n*log(n)
+> Choose QuickSort because it reduces the number of comparisons required and  it also doesn’t require any extra storage
 
 # Problem 4
 > Step 1:I will create 3 pointers: [first] , [last], [main]. The [first] and [main] will point to first element of the list, [last] will point to the last element of the list
@@ -31,7 +35,7 @@
 > * [main] item equal to 2 => swap it with the [last] item and move the [last] item to previuos and back to step 2
 > * [main] item equal to 0 => swap it with the [first] item, move the [first] and [main] to the next one ack to step 2
 > * else => just move the [main] to next one
-
+> Big O : O(n)
 
 
 # Problem 5
@@ -40,12 +44,18 @@
 >> Create list to contains possible suffixes.
 >> if current node is a word, then add [suffix] to the list and find the suffixes of its childrens and put it to the list also. 
 >> finally, we return this list
+> * Big O insert function: O(n)
+> * Big O find function : O(n)
+> * Big O suffixes function : O(n^n)
+> * Note : assume that [in] function have Big O = O(1)
+> * Choose Trie because it's easy to add and search element. It's also save memories
 
 # Pronlem 6
 > Create [min] and [max] with the value equal to the first element of input list
 > interate the list:
 > * if current item more than [max] ,then [max]= current item
 > * if current item less than [min] ,then [min]= less item
+> Big O : O(n)
 
 # Problem 7
 > Using Trie to store the routes and its handler fucntion.
@@ -53,3 +63,7 @@
 > Router class: there are 3 atrributes : routes (Trie), default handler, root path
 > * add_handler: if the path is the root path, we do nothing, else we add the path and its handler to the routes (Trie)
 > * lookup: use routes (Trie) to find the handler of the path, if it return None, then we return default handler .
+> * Big O add_handler function: O(n)
+> * Big O lookup function : O(n)
+> * Note : assume that [in] function have Big O = O(1)
+> * Choose Trie because it's easy to add and search element. It's also save memories

@@ -28,7 +28,7 @@ def search(start,input_list, number):
             return search(start+middle+1,input_list[middle+1:],number)
         return search(start,input_list[:middle],number)
     else:
-        if input_list[len(input_list)-1]< number:
+        if input_list[0]> input_list[middle] and input_list[len(input_list)-1] < number:
             return search(start,input_list[:middle],number)
         return search(start+middle+1,input_list[middle+1:],number)
 
@@ -46,8 +46,20 @@ def test_function(test_case):
     else:
         print("Fail")
 
+#normal
 test_function([[6, 7, 8, 9, 10, 1, 2, 3, 4], 6])
 test_function([[6, 7, 8, 9, 10, 1, 2, 3, 4], 1])
 test_function([[6, 7, 8, 1, 2, 3, 4], 8])
 test_function([[6, 7, 8, 1, 2, 3, 4], 1])
 test_function([[6, 7, 8, 9, 10, 3, 4], 10])
+
+# #not found
+test_function([[6, 7, 8, 9, 10, 3], 8])
+
+# #left
+test_function([[5,6,7,8,9,10,1,2], 1])
+test_function([[5,6,7,8,9,10,1,2], 6])
+
+#right
+test_function([[8,9,1,2,3,4,5,6], 5])
+test_function([[8,9,1,2,3,4,5,6], 9])

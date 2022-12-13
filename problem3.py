@@ -45,6 +45,10 @@ def test_function(test_case):
     else:
         print('Fail , Expected: {}, output: {}'.format(solution,output))
 
+#normal case
 test_function([[1, 2, 3, 4, 5], [542, 31]])
 test_function([[4, 6, 2, 5, 9, 8], [964, 852]])
-test_function([[0,0,0,1], [10, 00]])
+#emtpy or length <2
+test_function([[], [0, 0]])
+#same items
+test_function([[0,0,0,0], [00, 00]])
