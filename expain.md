@@ -7,7 +7,8 @@
 > * note : if floored start number equal to floored end number, we return floored start.
 > * =>>>> Big O: O(log(n))
 > * At the begining, the length of input is [n]. After first step, we have [n/2] (row 27,28), After second step, we have [n/4] (row 27,28) and so on... . So big o is O(log(n))
-> * * =>>>>Why choose:  Using recurser because we need to do the same job in next steps
+> * Space complexity: for each step, we will have to create 4 variables ( row 20-23) and number of steps is log(n) , so : O(4*log(n))=> O(log(n))
+> * * =>>>>Why choose:  Using binary search because after each step, we will a half list and reduce the time complexity (O(logn)) 
 # Problem 2
 
 > Using recurser
@@ -21,7 +22,8 @@
 > * else  we to check the items from [middle+1] to [end]
 > * =>>>> Big O: O(log(n))
 > * At the begining, the length of input is [n]. After first step, we have [n/2] (row 26-33 : search from [first - middle] or from [middle - end]), After second step, we have [n/4] (row 26-33) and so on... . So big o is O(log(n))
-> * * =>>>>Why choose:  Using recurser because after each steps , we will have a half list and search the number in this period. (same job)
+> * Space complexity: for each step, we will have to create 3 variables ( row 14-2) and number of steps is log(n) , so : O(3*log(n))=> O(log(n))
+> * * =>>>>Why choose:  Using binary search because after each step, we will a half list and reduce the time complexity (O(logn))
 
 # Problem 3
 > I will sort the list first (descending) and create 2 numbers [first_number] (0) and [second_number] (0)
@@ -30,6 +32,8 @@
 > then we will return this 2 numbers
 > * Big O: O(n*log(n))
 > * We have : O(n*log(n)) (for sort function -row 10) + O(6) (row 11- 16) + O(n*4) (for while loop , row 17-21) => So summary: O(n*log(n))
+> * * Space complexity: For the sort function (row 24):  for each step, we will have to create 3 lists ( row 28-30 to contain all the items of the original list => O(n)) + 2 variables (row 25,27) and number of steps is log(n) => so total will be : O((n+2)*log(n))=> O(n*log(n))
+> * * Space complexity: rearrange_digits: O(n*log(n)) (for sort function ,row 24) + O(3) (row 11-16) => O(n*log(n)) 
 > * * =>>>> Why choose: Choose QuickSort because it reduces the number of comparisons required and  it also doesn’t require any extra storage
 
 # Problem 4
@@ -40,6 +44,7 @@
 > * else => just move the [main] to next one
 > * Big O : O(n)
 > * We have : O(3) ( row 8-10) + O(n*7) (for while loop, row 11-24, worstest: list are already sorted )
+> * Space complexity: O(3) ( row 8-10) + O(n) ( while loop, create variable row 12) => total : O(n)
 > * * =>>>> Why choose: Just need a list because we don't need to change the size of it , and it's easy to get items at specific index
 
 # Problem 5
@@ -62,6 +67,7 @@
 > * if current item more than [max] ,then [max]= current item
 > * if current item less than [min] ,then [min]= less item
 > * Big O : O(3) (row 8-11)+ O(3*n) (For loop , row 12-17) => O(n)
+> * Space complexity: O(3) (row 8,10,11) 
 > * * =>>>> Why choose: Just need a list because we don't need to change the size of it , and it's easy to get items at specific index
 
 # Problem 7
