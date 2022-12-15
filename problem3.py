@@ -7,35 +7,33 @@ def rearrange_digits(input_list):
     Returns:
        (int),(int): Two maximum sums
     """
-    sorted_input= sort(input_list)
+    sort(input_list,0,len(input_list)-1)
     first_num=0
     second_num=0
     if len(input_list)%2==1:
-        first_num=sorted_input[0]
-        sorted_input=sorted_input[1:]
+        first_num=input_list[0]
+        input_list=input_list[1:]
     start=0
-    while start<len(sorted_input):
-        first_num=first_num*10+sorted_input[start]
+    while start<len(input_list):
+        first_num=first_num*10+input_list[start]
         start+=1
-        second_num=second_num*10+sorted_input[start]
+        second_num=second_num*10+input_list[start]
         start+=1
     return [first_num,second_num]
 
-def sort(input):
+def sort(input,start_idx,end_idx):
     if len(input)<=1:
         return input
-    p = input[len(input)//2]
-    left=[]
-    right=[]
-    middle=[]
-    for i in input:
-        if i>p:
-            left.append(i)
-        elif i<p:
-            right.append(i)
-        else:
-            middle.append(i)
-    return sort(left)+middle+sort(right)
+    if (start_idx < end_idx):
+        pivot = input[end_idx]
+        index=start_idx-1
+        for j in range(start_idx, end_idx):
+            if input[j] >= pivot:
+                index = index + 1
+                (input[index], input[j]) = (input[j], input[index])
+        (input[index + 1], input[end_idx]) = (input[end_idx], input[index + 1])
+        sort(input, start_idx, index)
+        sort(input, index + 1, end_idx)
 
 def test_function(test_case):
     output = rearrange_digits(test_case[0])

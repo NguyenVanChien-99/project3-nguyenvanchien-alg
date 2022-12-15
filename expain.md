@@ -32,8 +32,8 @@
 > then we will return this 2 numbers
 > * Big O: O(n*log(n))
 > * We have : O(n*log(n)) (for sort function -row 10) + O(6) (row 11- 16) + O(n*4) (for while loop , row 17-21) => So summary: O(n*log(n))
-> * * Space complexity: For the sort function (row 24):  O(log(n))
-> * * Space complexity: rearrange_digits: O(log(n)) (for sort function ,row 24) + O(3) (row 11-16) => O(log(n)) 
+> * * Space complexity: For the sort function (row 24):  O(n)
+> * * Space complexity: rearrange_digits: O(n)) (for sort function ,row 24) + O(3) (row 11-16) => O(n) 
 > * * =>>>> Why choose: Choose QuickSort because it reduces the number of comparisons required and  it also doesn’t require any extra storage
 
 # Problem 4
