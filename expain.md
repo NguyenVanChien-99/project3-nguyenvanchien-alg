@@ -53,11 +53,19 @@
 >> Create list to contains possible suffixes.
 >> if current node is a word, then add [suffix] to the list and find the suffixes of its childrens and put it to the list also. 
 >> finally, we return this list
+
 > * TrieNode.insert (row 12): O(1) (row 14)
-> * TrieNode.suffixes (row 19): O(3) (rơ 23-25) + O(n*n) (for loop, row 26,27. Each item will get call to the suffixes funtion again and so on. So it will be n*n) => O(n*n)
+> * Space complexity: O(1) (row 14, just create 1 variable)
+> * ========================================================================================================
+> * TrieNode.suffixes (row 19): O(3) (row 23-25) + O(n*n) (for loop, row 26,27. Each item will get call to the suffixes funtion again and so on. So it will be n*n) => O(n*n)
+> * Space complexity: O(n) (row 23,25 . FOr the worst case each character is a word)
+> * ========================================================================================================
 > * Trie.insert (row 36): O(1) (row 38)+ O(3*n) (for loop ,row 40-43) + O(1) (row 44) => O(n)
+> * Space complexity: O(1) (row 38) + O(n) ( row 42, insert function inside for loop, for worst case) => O(n)
+> * ========================================================================================================
 > * Trie.find (row 46) :  O(1) (row 48)+ O(2*n) (for loop ,row 50-52) => O(n)
-> * Big O suffixes function : O(n^n)
+> * Space complexity: O(1) (row 14, just create 1 variable)
+> * ========================================================================================================
 > * Note : assume that [in] function have Big O = O(1)
 > * * =>>>> Why choose: Choose Trie because it's easy to add and search element. It's also save memories
 
@@ -67,7 +75,7 @@
 > * if current item more than [max] ,then [max]= current item
 > * if current item less than [min] ,then [min]= less item
 > * Big O : O(3) (row 8-11)+ O(3*n) (For loop , row 12-17) => O(n)
-> * Space complexity: O(3) (row 8,10,11) 
+> * Space complexity: O(3) (row 8,10,11) => O(1)
 > * * =>>>> Why choose: Just need a list because we don't need to change the size of it , and it's easy to get items at specific index
 
 # Problem 7
@@ -78,10 +86,22 @@
 > * lookup: use routes (Trie) to find the handler of the path, if it return None, then we return default handler .
 
 > * RouteTrieNode.insert (row 38): O(1)
+> * Space complexity: O(1) (row 38, just create 1 variable)
+> * ========================================================================================================
 > * Trie.insert (row 8): O(1) (row 11)+ O(3*n) (for loop ,row 13-16) + O(1) (row 17) => O(n)
+> * Space complexity: O(1) (row 11) + O(n) ( row 35, insert function inside for loop, for worst case) => O(n)
+> * ========================================================================================================
 > * Trie.find (row 19) :  O(1) (row 22)+ O(2*n) (for loop ,row 24-27) => O(n)
+> * Space complexity: O(1) (row 22, just create 1 variable)
+> * ========================================================================================================
 > * Router.split_path (row 72): O(3) (row 76-79)=> O(1)
+> * Space complexity: O(n) (row 80, need to create a list to store parts of path)
+> * ========================================================================================================
 > * Router.add_handler (row 50): O(1) (row 54)+ O(1) (row 56, split_path function)+ O(n) (row 56,Trie.insert function ) => O(n)
+> * Space complexity: O(n) (row 54, a list to store parts of path) +O(n) (row 56, insert function) => O(n)
+> * ========================================================================================================
 > * Router.lookup (row 58) :  O(3) (row 64-66)+ O(n) (row 67,Trie.find function ) +O(2) (row 68,69) => O(n)
+> * Space complexity: O(n) (row 66, a list to store parts of path) +O(1) (row 67) => O(n)
+> * ========================================================================================================
 > * Note : assume that [in] function have Big O = O(1)
 > * * =>>>> Why choose: Choose Trie because it's easy to add and search element. It's also save memories
