@@ -72,9 +72,9 @@
 > * Space complexity: O(1) (row 38) + O(n) ( row 42, insert function inside for loop, for BEST case- words already exist) => O(n)
 > * ========================================================================================================
 > * Trie.find (row 46) :  O(1) (row 48)+ O(2*n) (for loop ,row 50-52) => O(n)
-> * Space complexity: O(1) (row 14, just create 1 variable)
+> * Space complexity: O(1) (row 48, just create 1 variable)
 > * ========================================================================================================
-> * Note : assume that [in] function have Big O = O(1)
+> * Note : assume that [not in] function have Big O = O(1)
 > * * =>>>> Why choose: Choose Trie because it's easy to add and search element. It's also save memories
 
 # Pronlem 6
@@ -123,5 +123,5 @@
 > * Router.lookup (row 58) :  O(3) (row 64-66)+ O(n) (row 67,Trie.find function ) +O(2) (row 68,69) => O(n)
 > * Space complexity: O(n) (row 66, a list to store parts of path) +O(1) (row 67) => O(n)
 > * ========================================================================================================
-> * Note : assume that [in] function have Big O = O(1)
+> * Note : assume that [not in] function have Big O = O(1)
 > * * =>>>> Why choose: Choose Trie because it's easy to add and search element. It's also save memories
