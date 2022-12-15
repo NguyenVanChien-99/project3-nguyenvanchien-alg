@@ -32,8 +32,8 @@
 > then we will return this 2 numbers
 > * Big O: O(n*log(n))
 > * We have : O(n*log(n)) (for sort function -row 10) + O(6) (row 11- 16) + O(n*4) (for while loop , row 17-21) => So summary: O(n*log(n))
-> * * Space complexity: For the sort function (row 24):  for each step, we will have to create 3 lists ( row 28-30 to contain all the items of the original list => O(n)) + 2 variables (row 25,27) and number of steps is log(n) => so total will be : O((n+2)*log(n))=> O(n*log(n))
-> * * Space complexity: rearrange_digits: O(n*log(n)) (for sort function ,row 24) + O(3) (row 11-16) => O(n*log(n)) 
+> * * Space complexity: For the sort function (row 24):  O(log(n))
+> * * Space complexity: rearrange_digits: O(log(n)) (for sort function ,row 24) + O(3) (row 11-16) => O(log(n)) 
 > * * =>>>> Why choose: Choose QuickSort because it reduces the number of comparisons required and  it also doesn’t require any extra storage
 
 # Problem 4
@@ -44,7 +44,7 @@
 > * else => just move the [main] to next one
 > * Big O : O(n)
 > * We have : O(3) ( row 8-10) + O(n*7) (for while loop, row 11-24, worstest: list are already sorted )
-> * Space complexity: O(3) ( row 8-10) + O(n) ( while loop, create variable row 12) => total : O(n)
+> * Space complexity: O(3) ( row 8-10) + O(2) ( while loop, create variable row 12,14) => total : O(1)
 > * * =>>>> Why choose: Just need a list because we don't need to change the size of it , and it's easy to get items at specific index
 
 # Problem 5
@@ -54,14 +54,22 @@
 >> if current node is a word, then add [suffix] to the list and find the suffixes of its childrens and put it to the list also. 
 >> finally, we return this list
 
+> * TrieNode.__init__ (row 7): O(2) (row 9,10) =>O(1)
+> * Space complexity: O(2) (row 9,10)=>O(1)
+> * ========================================================================================================
 > * TrieNode.insert (row 12): O(1) (row 14)
 > * Space complexity: O(1) (row 14, just create 1 variable)
 > * ========================================================================================================
 > * TrieNode.suffixes (row 19): O(3) (row 23-25) + O(n*n) (for loop, row 26,27. Each item will get call to the suffixes funtion again and so on. So it will be n*n) => O(n*n)
 > * Space complexity: O(n) (row 23,25 . FOr the worst case each character is a word)
 > * ========================================================================================================
+
+> * Trie.__init__ (row 32): O(1) (row 34)
+> * Space complexity: O(1) (row 34)
+> * ========================================================================================================
 > * Trie.insert (row 36): O(1) (row 38)+ O(3*n) (for loop ,row 40-43) + O(1) (row 44) => O(n)
-> * Space complexity: O(1) (row 38) + O(n) ( row 42, insert function inside for loop, for worst case) => O(n)
+> * Space complexity: O(1) (row 38) + O(n) ( row 42, insert function inside for loop, for WORST case) => O(n)
+> * Space complexity: O(1) (row 38) + O(n) ( row 42, insert function inside for loop, for BEST case- words already exist) => O(n)
 > * ========================================================================================================
 > * Trie.find (row 46) :  O(1) (row 48)+ O(2*n) (for loop ,row 50-52) => O(n)
 > * Space complexity: O(1) (row 14, just create 1 variable)
@@ -85,14 +93,26 @@
 > * add_handler: if the path is the root path, we do nothing, else we add the path and its handler to the routes (Trie)
 > * lookup: use routes (Trie) to find the handler of the path, if it return None, then we return default handler .
 
+> * RouteTrieNode.__init__ (row 33): O(2) (row 35-36)=> O(1)
+> * Space complexity: O(1) (row  35-36)
+> * ========================================================================================================
 > * RouteTrieNode.insert (row 38): O(1)
 > * Space complexity: O(1) (row 38, just create 1 variable)
 > * ========================================================================================================
+
+> * RouteTrie.__init__ (row 4): O(1) (row6)
+> * Space complexity: O(1) (row 6)
+> * ========================================================================================================
 > * Trie.insert (row 8): O(1) (row 11)+ O(3*n) (for loop ,row 13-16) + O(1) (row 17) => O(n)
-> * Space complexity: O(1) (row 11) + O(n) ( row 35, insert function inside for loop, for worst case) => O(n)
+> * Space complexity: O(1) (row 11) + O(n) ( row 35, insert function inside for loop, for WORST case) => O(n)
+> * Space complexity: O(1) (row 11) + O(1) ( row 35, insert function inside for loop, for BEST case-parts already exist) => O(1)
 > * ========================================================================================================
 > * Trie.find (row 19) :  O(1) (row 22)+ O(2*n) (for loop ,row 24-27) => O(n)
 > * Space complexity: O(1) (row 22, just create 1 variable)
+
+> * ========================================================================================================
+> * Router.__init__ (row 43): O(3) (row 46-48)=> O(1)
+> * Space complexity: O(1) (row  46-48)
 > * ========================================================================================================
 > * Router.split_path (row 72): O(3) (row 76-79)=> O(1)
 > * Space complexity: O(n) (row 80, need to create a list to store parts of path)
